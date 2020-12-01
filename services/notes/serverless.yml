@@ -15,7 +15,7 @@ provider:
   apiGateway: {
     shouldStartNameWithService: true
   }
-  stage: prod
+  stage: dev
   region: us-east-2
   # These environment variables are made available to our functions
   # under process.env.
