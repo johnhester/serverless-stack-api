@@ -2,7 +2,9 @@ import handler from "./libs/handler-lib";
 import dynamoDb from "./libs/dynamodb-lib";
 
 export const main = handler(async (event, context) => {
+    console.log('before params');
     const params = {
+        // TableName: 'testTable',
         TableName: process.env.tableName,
         // 'Key' defines the partition key and sort key of the item to be removed
         Key: {
@@ -10,7 +12,7 @@ export const main = handler(async (event, context) => {
             noteId: event.pathParameters.id, // The id of the note from the path
         },
     };
-
+    console.log('after params');
     await dynamoDb.delete(params);
 
     return { status: true };
